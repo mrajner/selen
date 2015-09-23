@@ -347,10 +347,10 @@ ${SETUP}/data.inc: config$(EXEEXT) config.dat
 # rules for object files
 #######################################
 
-$O/harmonics-omp.o: $S/harmonics.f90
+$O/harmonics-omp.o: $S/harmonics.f90 $O/shtools.o
 	${FCCOMPILE} -c -o $O/harmonics-omp.o $S/harmonics.f90
 
-$O/harmonics.o: $S/harmonics.f90
+$O/harmonics.o: $S/harmonics.f90 $O/shtools.o
 	${NO_OMP_FCCOMPILE} -c -o $O/harmonics.o $S/harmonics.f90
 
 $O/shtools.o: $S/harmonics.f90 $S/shtools.f90
